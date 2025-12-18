@@ -18,3 +18,13 @@ Diagrama de Base de Datos
          └───────────────>└─────────────────┘
          1:N relación
 
+[FORMULARIO] → [PHP] → [CONSULTA SQL]
+   ↓
+INSERT INTO tareas (usuario_id, ...) VALUES (?, ...)
+   ↓
+El ? se reemplaza con $_SESSION['user_id']
+   ↓
+MySQL verifica que usuario_id exista en usuarios.id
+   ↓
+Si NO existe → ERROR de integridad referencial
+Si SI existe → INSERCIÓN exitosa
